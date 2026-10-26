@@ -493,15 +493,37 @@ footer strong {
   font-weight: bold;
   box-shadow: 0 0 18px rgba(217, 165, 46, 0.12);
 }
-button:hover, .btn:hover, a.button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(217, 165, 46, 0.4);
+/* افکت طلایی دکمه‌ها */
+.btn,
+button {
   transition: all 0.3s ease;
 }
 
-.services .service:hover, .service-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 25px rgba(217, 165, 46, 0.18);
+.btn:hover,
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(217, 165, 46, 0.45);
+}
+
+/* افکت طلایی کارت‌های خدمات */
+.card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease,
+              border-color 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 28px rgba(217, 165, 46, 0.22);
+  border-color: var(--gold);
+}
+
+/* نور ملایم هنگام لمس کارت‌ها در گوشی */
+@media (hover: none) {
+  .card:active,
+  .btn:active,
+  button:active {
+    box-shadow: 0 0 18px rgba(217, 165, 46, 0.3);
+  }
 }
 @media (max-width: 850px) {
   .nav {
