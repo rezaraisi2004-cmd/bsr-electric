@@ -3,292 +3,933 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101010">
-<meta name="description" content="گروه برق صنعت رئیسی؛ طراحی و مونتاژ تابلو برق صنعتی، اتوماسیون، PLC، تعمیرات و نگهداری کارخانه‌ها در مشهد.">
+<meta name="theme-color" content="#0b0b0b">
+
 <title>گروه برق صنعت رئیسی | BSR Electric</title>
+
+<meta name="description" content="طراحی و مونتاژ تابلو برق صنعتی، برق کارخانه و سوله، PLC، اتوماسیون صنعتی و تعمیرات تابلو برق در مشهد.">
 
 <style>
 :root {
-  --gold: #d7ad58;
-  --gold-light: #f2d58d;
-  --bg: #0b0c0e;
-  --panel: #15171a;
-  --muted: #b4b5ba;
-  --white: #f8f7f2;
+  --gold: #d9a52e;
+  --gold-light: #f4cb69;
+  --black: #090909;
+  --panel: #141414;
+  --text: #f5f5f5;
+  --muted: #b8b8b8;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
+
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--text);
   font-family: Tahoma, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--white);
   line-height: 1.9;
 }
-a { color: inherit; text-decoration: none; }
-.container { width: min(1120px, 91%); margin: auto; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: auto;
+}
+
+/* Header */
+
 header {
-  position: sticky; top: 0; z-index: 10;
-  background: rgba(11,12,14,.95);
-  border-bottom: 1px solid #292929;
-  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 5;
+  background: rgba(8, 8, 8, 0.96);
+  border-bottom: 1px solid rgba(217, 165, 46, 0.25);
 }
+
 .nav {
-  min-height: 78px; display: flex; align-items: center;
-  justify-content: space-between; gap: 15px; flex-wrap: wrap;
-  padding: 10px 0;
+  min-height: 92px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 12px 0;
 }
-.brand { display: flex; align-items: center; gap: 12px; }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .logo {
-  width: 64px;
-  height: 64px;
+  width: 65px;
+  height: 65px;
   object-fit: cover;
   object-position: center;
   border: 1px solid var(--gold);
-  border-radius: 10px;
+  border-radius: 12px;
   background: #000;
   padding: 0;
 }
+
+.brand h2 {
+  font-size: 19px;
+  color: var(--gold-light);
 }
-.brand-name { font-weight: bold; }
-.brand-en { font-size: 11px; color: var(--gold); direction: ltr; }
-.nav-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-.nav-links a { font-size: 13px; color: #ddd; }
-.nav-links a:hover { color: var(--gold); }
-.lang {
-  background: transparent; color: var(--gold);
-  border: 1px solid var(--gold); border-radius: 8px;
-  padding: 7px 12px; cursor: pointer;
+
+.brand p {
+  font-size: 12px;
+  color: #ddd;
 }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-size: 14px;
+  transition: color .2s;
+}
+
+nav a:hover {
+  color: var(--gold-light);
+}
+
+.nav-call {
+  border: 1px solid var(--gold);
+  padding: 9px 16px;
+  border-radius: 9px;
+  color: var(--gold-light);
+}
+
+/* Hero */
+
 .hero {
-  padding: 85px 0 75px;
+  position: relative;
+  isolation: isolate;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
   background:
-    radial-gradient(ellipse at 15% 15%, #3c2d151c, transparent 48%),
-    linear-gradient(135deg,#111214,#0b0c0e 65%);
-  border-bottom: 1px solid #252525;
+    radial-gradient(
+      ellipse at 80% 35%,
+      rgba(125, 88, 20, .13),
+      transparent 48%
+    ),
+    #0a0a0a;
 }
-.eyebrow { color: var(--gold); font-size: 13px; letter-spacing: .5px; }
-h1 { font-size: clamp(30px,5vw,54px); line-height: 1.5; margin: 12px 0; }
-h1 span, h2 span { color: var(--gold); }
-.hero p { color: var(--muted); max-width: 680px; }
-.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=85");
+  background-position: left center;
+  background-size: cover;
+  opacity: .23;
+  filter: grayscale(100%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    270deg,
+    #090909 0%,
+    rgba(9,9,9,.97) 25%,
+    rgba(9,9,9,.70) 55%,
+    rgba(9,9,9,.25) 100%
+  );
+}
+
+.hero-content {
+  width: 100%;
+  padding: 80px 0 35px;
+}
+
+.hero-text {
+  max-width: 700px;
+  margin-right: auto;
+  text-align: right;
+}
+
+.eyebrow {
+  color: var(--gold-light);
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 57px);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.slogan {
+  color: #e8e8e8;
+  font-size: clamp(19px, 2.5vw, 27px);
+  margin-bottom: 22px;
+}
+
+.hero-description {
+  color: #c8c8c8;
+  font-size: 16px;
+  max-width: 630px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
 .btn {
-  display: inline-flex; justify-content: center; align-items: center;
-  padding: 11px 20px; border-radius: 9px; font-weight: bold;
-  border: 1px solid var(--gold); cursor: pointer; font-family: inherit;
+  display: inline-block;
+  padding: 13px 25px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: .2s;
+  text-align: center;
 }
-.btn-gold { background: var(--gold); color: #15120b; }
-.btn-outline { color: var(--gold); background: transparent; }
-.stats {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 12px; margin-top: 45px; max-width: 720px;
+
+.btn:hover {
+  transform: translateY(-2px);
 }
-.stat { padding: 17px; border: 1px solid #2b2b2b; border-radius: 12px; background: #15151580; }
-.stat strong { color: var(--gold); display: block; font-size: 23px; }
-.stat small { color: var(--muted); font-size: 12px; }
-section { padding: 65px 0; }
-.section-head { margin-bottom: 27px; }
-.section-head h2 { font-size: clamp(24px,4vw,35px); margin: 0 0 8px; }
-.section-head p { color: var(--muted); margin: 0; }
-.grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 17px; }
-.card {
-  background: var(--panel); border: 1px solid #292a2d;
-  padding: 24px; border-radius: 14px; transition: .2s;
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: #17120a;
 }
-.card:hover { border-color: #8f7035; transform: translateY(-3px); }
-.icon { font-size: 28px; margin-bottom: 8px; }
-.card h3 { margin: 5px 0 8px; font-size: 18px; }
-.card p { color: var(--muted); font-size: 14px; margin: 0; }
+
+.btn-outline {
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  background: rgba(0,0,0,.3);
+}
+
+/* Feature cards */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+  margin-top: 55px;
+}
+
 .feature {
-  background: linear-gradient(115deg,#171613,#111214);
-  border-top: 1px solid #332b1d; border-bottom: 1px solid #332b1d;
+  padding: 18px;
+  background: rgba(15,15,15,.75);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
 }
-.feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
-.checks { padding: 0; list-style: none; }
-.checks li { padding: 7px 0; color: #ddd; }
-.checks li::before { content: "✓"; color: var(--gold); margin-left: 10px; font-weight: bold; }
-.note { color: var(--muted); font-size: 12px; }
-.contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; }
-.contact-item { margin: 17px 0; color: var(--muted); overflow-wrap: anywhere; }
-.contact-item strong { color: var(--gold); display: block; }
-form { display: grid; gap: 12px; }
-input, select, textarea {
-  width: 100%; background: #0e0f11; border: 1px solid #33353a;
-  border-radius: 8px; padding: 13px; color: white;
-  font: inherit; font-size: 14px;
+
+.feature strong {
+  display: block;
+  color: var(--gold-light);
+  margin-bottom: 5px;
+  font-size: 15px;
 }
-textarea { min-height: 105px; resize: vertical; }
-input:focus, select:focus, textarea:focus { outline: 1px solid var(--gold); }
-footer { padding: 25px 0; border-top: 1px solid #292929; color: var(--muted); font-size: 12px; }
-.footer-row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-[dir="ltr"] .brand-en { text-align: left; }
-[dir="ltr"] .checks li::before { margin-left: 0; margin-right: 10px; }
-@media(max-width:800px) {
-  .nav { justify-content: center; }
-  .nav-links { justify-content: center; gap: 12px; }
-  .grid { grid-template-columns: repeat(2,1fr); }
-  .feature-grid, .contact-grid { grid-template-columns: 1fr; }
+
+.feature p {
+  color: #bcbcbc;
+  font-size: 12px;
 }
-@media(max-width:520px) {
-  .grid { grid-template-columns: 1fr; }
-  .stats { grid-template-columns: 1fr; }
-  .hero { padding: 55px 0; }
-  .nav-links a { font-size: 12px; }
+
+/* General sections */
+
+section.content-section {
+  padding: 85px 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading h2 {
+  font-size: clamp(25px, 3vw, 35px);
+  margin-bottom: 10px;
+}
+
+.section-heading h2 span {
+  color: var(--gold);
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.services {
+  background: #101010;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(145deg, #181818, #101010);
+  border: 1px solid rgba(217,165,46,.18);
+  padding: 28px 23px;
+  border-radius: 14px;
+  transition: .25s;
+}
+
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  color: var(--gold-light);
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #bcbcbc;
+  font-size: 14px;
+}
+
+/* Projects */
+
+.projects {
+  background:
+    radial-gradient(ellipse at top, #19150d, transparent 65%),
+    #090909;
+}
+
+.project-box {
+  border: 1px dashed rgba(217,165,46,.45);
+  border-radius: 16px;
+  padding: 35px 24px;
+  text-align: center;
+  background: rgba(255,255,255,.025);
+}
+
+.project-box h3 {
+  color: var(--gold-light);
+  margin-bottom: 12px;
+  font-size: 21px;
+}
+
+.project-box p {
+  color: #c5c5c5;
+  max-width: 650px;
+  margin: 0 auto 22px;
+}
+
+/* About */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.about-text h2 span {
+  color: var(--gold);
+}
+
+.about-text p {
+  color: #c1c1c1;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.about-panel {
+  border: 1px solid rgba(217,165,46,.3);
+  background: linear-gradient(145deg, #1a1710, #111);
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.about-panel h3 {
+  color: var(--gold-light);
+  margin-bottom: 14px;
+}
+
+.about-panel li {
+  list-style: none;
+  color: #ddd;
+  padding: 7px 0;
+}
+
+.about-panel li::before {
+  content: "✓";
+  color: var(--gold);
+  margin-left: 10px;
+}
+
+/* Contact */
+
+.contact {
+  background: #101010;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.contact-info,
+.contact-form {
+  background: #171717;
+  border: 1px solid #292929;
+  border-radius: 15px;
+  padding: 28px;
+}
+
+.contact-info h3,
+.contact-form h3 {
+  color: var(--gold-light);
+  margin-bottom: 18px;
+}
+
+.contact-item {
+  margin: 13px 0;
+  color: #ddd;
+  overflow-wrap: anywhere;
+}
+
+.contact-item strong {
+  color: var(--gold-light);
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 13px;
+  border: 1px solid #383838;
+  background: #0c0c0c;
+  color: #fff;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.contact-form textarea {
+  min-height: 115px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  outline: 1px solid var(--gold);
+}
+
+/* Footer */
+
+footer {
+  padding: 28px 0;
+  text-align: center;
+  background: #070707;
+  border-top: 1px solid rgba(217,165,46,.22);
+}
+
+footer p {
+  color: #999;
+  font-size: 12px;
+}
+
+footer strong {
+  color: var(--gold-light);
+}
+
+/* Mobile */
+
+@media (max-width: 850px) {
+  .nav {
+    justify-content: center;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-content {
+    padding-top: 65px;
+  }
+
+  .hero-text {
+    margin: 0;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .brand h2 {
+    font-size: 15px;
+  }
+
+  .brand p {
+    font-size: 10px;
+  }
+
+  .logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero-content {
+    padding-top: 50px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .features,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  section.content-section {
+    padding: 60px 0;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 20px;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <header>
   <div class="container nav">
-    <a class="brand" href="#home" aria-label="BSR Electric">
-      <img src="bsr-logo.jpg" alt="لوگوی گروه برق صنعت رئیسی" class="logo">
+
+    <a class="brand" href="#home">
+      <img
+        src="bsr-logo.jpg"
+        alt="لوگوی BSR"
+        class="logo"
+      >
+
       <div>
-        <div class="brand-name" data-fa="گروه برق صنعت رئیسی" data-en="Raisi Industrial Electric">گروه برق صنعت رئیسی</div>
-        <div class="brand-en">BSR ELECTRIC</div>
+        <h2>گروه برق صنعت رئیسی</h2>
+        <p>جریانی پایدار، کیفیتی ماندگار</p>
       </div>
     </a>
-    <nav class="nav-links">
-      <a href="#home" data-fa="خانه" data-en="Home">خانه</a>
-      <a href="#services" data-fa="خدمات" data-en="Services">خدمات</a>
-      <a href="#about" data-fa="درباره ما" data-en="About">درباره ما</a>
-      <a href="#contact" data-fa="تماس با ما" data-en="Contact">تماس با ما</a>
-      <button class="lang" id="langBtn" type="button">English</button>
+
+    <nav>
+      <a href="#home">صفحه اصلی</a>
+      <a href="#services">خدمات</a>
+      <a href="#projects">نمونه‌کارها</a>
+      <a href="#about">درباره ما</a>
+      <a href="#contact">تماس با ما</a>
+      <a class="nav-call" href="tel:05137112121">
+        تماس با شرکت
+      </a>
     </nav>
+
   </div>
 </header>
 
 <main>
-<section class="hero" id="home">
-  <div class="container">
-    <div class="eyebrow" data-fa="مهندسی برق صنعتی • مشهد" data-en="Industrial Electrical Engineering • Mashhad">مهندسی برق صنعتی • مشهد</div>
-    <h1 data-fa="جریانی پایدار،<br><span>کیفیتی ماندگار</span>" data-en="Reliable Power.<br><span>Lasting Quality.</span>">جریانی پایدار،<br><span>کیفیتی ماندگار</span></h1>
-    <p data-fa="ارائه خدمات تخصصی طراحی و مونتاژ تابلو برق صنعتی، اتوماسیون و PLC، اجرای برق کارخانه و سوله، عیب‌یابی و نگهداری تجهیزات الکتریکی." data-en="Professional industrial electrical panel design and assembly, PLC and automation, factory electrical projects, troubleshooting and maintenance.">ارائه خدمات تخصصی طراحی و مونتاژ تابلو برق صنعتی، اتوماسیون و PLC، اجرای برق کارخانه و سوله، عیب‌یابی و نگهداری تجهیزات الکتریکی.</p>
-    <div class="actions">
-      <a class="btn btn-gold" href="#contact" data-fa="درخواست اجرای پروژه" data-en="Request a Project">درخواست اجرای پروژه</a>
-      <a class="btn btn-outline" href="tel:09157276137" data-fa="تماس مستقیم" data-en="Call Us">تماس مستقیم</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><strong>6+</strong><small data-fa="سال تجربه" data-en="Years of Experience">سال تجربه</small></div>
-      <div class="stat"><strong>1</strong><small data-fa="سال ضمانت استاندارد تابلوها، طبق قرارداد" data-en="Year standard panel warranty, subject to contract">سال ضمانت استاندارد تابلوها، طبق قرارداد</small></div>
-      <div class="stat"><strong>BSR</strong><small data-fa="تعهد به کیفیت و پشتیبانی" data-en="Quality and support">تعهد به کیفیت و پشتیبانی</small></div>
-    </div>
-  </div>
-</section>
 
-<section id="services">
-  <div class="container">
-    <div class="section-head">
-      <h2 data-fa="خدمات <span>تخصصی ما</span>" data-en="Our <span>Services</span>">خدمات <span>تخصصی ما</span></h2>
-      <p data-fa="راهکارهای مهندسی متناسب با نیاز واحدهای صنعتی و پروژه‌های ساختمانی." data-en="Engineering solutions for industrial facilities and building projects.">راهکارهای مهندسی متناسب با نیاز واحدهای صنعتی و پروژه‌های ساختمانی.</p>
-    </div>
-    <div class="grid">
-      <article class="card"><div class="icon">⚡</div><h3 data-fa="طراحی و مونتاژ تابلو برق" data-en="Electrical Panel Design & Assembly">طراحی و مونتاژ تابلو برق</h3><p data-fa="طراحی و ساخت تابلوهای برق صنعتی و توزیع متناسب با نیاز پروژه و الزامات فنی." data-en="Industrial and distribution panel design and assembly to suit project requirements.">طراحی و ساخت تابلوهای برق صنعتی و توزیع متناسب با نیاز پروژه و الزامات فنی.</p></article>
-      <article class="card"><div class="icon">🏭</div><h3 data-fa="برق کارخانه و سوله" data-en="Factory & Industrial Shed Electrical Work">برق کارخانه و سوله</h3><p data-fa="اجرای پروژه‌های برق صنعتی، کابل‌کشی و راه‌اندازی تجهیزات الکتریکی." data-en="Industrial electrical installations, cabling and equipment commissioning.">اجرای پروژه‌های برق صنعتی، کابل‌کشی و راه‌اندازی تجهیزات الکتریکی.</p></article>
-      <article class="card"><div class="icon">⚙️</div><h3 data-fa="اتوماسیون و برنامه‌نویسی PLC" data-en="PLC & Industrial Automation">اتوماسیون و برنامه‌نویسی PLC</h3><p data-fa="برنامه‌نویسی، عیب‌یابی و پشتیبانی سیستم‌های کنترل صنعتی." data-en="Programming, troubleshooting and support for industrial control systems.">برنامه‌نویسی، عیب‌یابی و پشتیبانی سیستم‌های کنترل صنعتی.</p></article>
-      <article class="card"><div class="icon">🛠️</div><h3 data-fa="عیب‌یابی و تعمیرات" data-en="Troubleshooting & Repairs">عیب‌یابی و تعمیرات</h3><p data-fa="بررسی و رفع ایرادات تابلو برق و تجهیزات جهت کاهش توقف خطوط تولید." data-en="Electrical panel and equipment fault finding to help reduce production downtime.">بررسی و رفع ایرادات تابلو برق و تجهیزات جهت کاهش توقف خطوط تولید.</p></article>
-      <article class="card"><div class="icon">🔧</div><h3 data-fa="نگهداری دوره‌ای کارخانه" data-en="Factory Preventive Maintenance">نگهداری دوره‌ای کارخانه</h3><p data-fa="بازدید دوره‌ای، بررسی وضعیت تابلوها و آچارکشی اتصالات طبق قرارداد نگهداری." data-en="Periodic inspections and connection checks under a maintenance agreement.">بازدید دوره‌ای، بررسی وضعیت تابلوها و آچارکشی اتصالات طبق قرارداد نگهداری.</p></article>
-      <article class="card"><div class="icon">💡</div><h3 data-fa="تابلو خازنی و برق ساختمان" data-en="Capacitor Panels & Building Electrical">تابلو خازنی و برق ساختمان</h3><p data-fa="طراحی و مونتاژ تابلوهای خازنی و اجرای خدمات برق ساختمان متناسب با پروژه." data-en="Capacitor bank panel assembly and electrical services for buildings.">طراحی و مونتاژ تابلوهای خازنی و اجرای خدمات برق ساختمان متناسب با پروژه.</p></article>
-    </div>
-  </div>
-</section>
+  <section class="hero" id="home">
+    <div class="container hero-content">
 
-<section class="feature" id="about">
-  <div class="container feature-grid">
-    <div>
-      <div class="eyebrow" data-fa="درباره مجموعه" data-en="About BSR">درباره مجموعه</div>
-      <h2 data-fa="همراه مطمئن شما در <span>برق صنعتی</span>" data-en="Your Partner in <span>Industrial Power</span>">همراه مطمئن شما در <span>برق صنعتی</span></h2>
-      <p style="color:var(--muted)" data-fa="گروه برق صنعت رئیسی با تمرکز بر راهکارهای برق صنعتی، طراحی و مونتاژ تابلو برق و خدمات پشتیبانی، در کنار واحدهای تولیدی و صنعتی قرار می‌گیرد. هدف ما ارائه کار اصولی، پاسخ‌گویی شفاف و راهکار متناسب با نیاز هر پروژه است." data-en="BSR Electric focuses on industrial electrical solutions, panel design and assembly, and technical support for factories and industrial facilities. We aim to deliver sound engineering, clear communication and project-specific solutions.">گروه برق صنعت رئیسی با تمرکز بر راهکارهای برق صنعتی، طراحی و مونتاژ تابلو برق و خدمات پشتیبانی، در کنار واحدهای تولیدی و صنعتی قرار می‌گیرد. هدف ما ارائه کار اصولی، پاسخ‌گویی شفاف و راهکار متناسب با نیاز هر پروژه است.</p>
-    </div>
-    <div class="card">
-      <h3 data-fa="چرا BSR Electric؟" data-en="Why BSR Electric?">چرا BSR Electric؟</h3>
-      <ul class="checks">
-        <li data-fa="تمرکز بر نیازهای واقعی واحدهای صنعتی" data-en="Solutions tailored to industrial needs">تمرکز بر نیازهای واقعی واحدهای صنعتی</li>
-        <li data-fa="توجه به کیفیت ساخت و ایمنی" data-en="Focus on build quality and safety">توجه به کیفیت ساخت و ایمنی</li>
-        <li data-fa="پشتیبانی و نگهداری طبق توافق" data-en="Support and maintenance by agreement">پشتیبانی و نگهداری طبق توافق</li>
-        <li data-fa="برآورد پروژه با توجه به مشخصات فنی" data-en="Project estimates based on technical specifications">برآورد پروژه با توجه به مشخصات فنی</li>
-      </ul>
-      <p class="note" data-fa="شرایط ضمانت، خدمات و زمان‌بندی در قرارداد هر پروژه مشخص می‌شود." data-en="Warranty, service and scheduling terms are specified in each project contract.">شرایط ضمانت، خدمات و زمان‌بندی در قرارداد هر پروژه مشخص می‌شود.</p>
-    </div>
-  </div>
-</section>
+      <div class="hero-text">
+        <p class="eyebrow">
+          BSR ELECTRIC | INDUSTRIAL SOLUTIONS
+        </p>
 
-<section id="contact">
-  <div class="container">
-    <div class="section-head">
-      <h2 data-fa="برای پروژه‌تان <span>با ما در تماس باشید</span>" data-en="Let's Discuss <span>Your Project</span>">برای پروژه‌تان <span>با ما در تماس باشید</span></h2>
-      <p data-fa="اطلاعات پروژه را در فرم وارد کنید تا پیام آماده‌ای در واتساپ باز شود." data-en="Fill in the project details to open a prepared WhatsApp message.">اطلاعات پروژه را در فرم وارد کنید تا پیام آماده‌ای در واتساپ باز شود.</p>
-    </div>
-    <div class="contact-grid">
-      <div class="card">
-        <div class="contact-item"><strong data-fa="تلفن همراه" data-en="Mobile">تلفن همراه</strong><a href="tel:09157276137" dir="ltr">0915 727 6137</a></div>
-        <div class="contact-item"><strong data-fa="تلفن دفتر" data-en="Office">تلفن دفتر</strong><a href="tel:05137112121" dir="ltr">051 3711 2121</a></div>
-        <div class="contact-item"><strong data-fa="آدرس" data-en="Address">آدرس</strong><span data-fa="مشهد، بلوار سجاد، بزرگمهر جنوبی، ۱۲/۱" data-en="Mashhad, Sajjad Blvd, South Bozorgmehr, 12/1">مشهد، بلوار سجاد، بزرگمهر جنوبی، ۱۲/۱</span></div>
-        <a class="btn btn-outline" href="https://wa.me/989157276137" target="_blank" rel="noopener" data-fa="پیام مستقیم در واتساپ" data-en="Message on WhatsApp">پیام مستقیم در واتساپ</a>
+        <h1>
+          گروه برق <span>صنعت رئیسی</span>
+        </h1>
+
+        <p class="slogan">
+          جریانی پایدار، کیفیتی ماندگار
+        </p>
+
+        <p class="hero-description">
+          ارائه خدمات تخصصی طراحی، مونتاژ، نصب و تعمیرات تابلو برق
+          صنعتی؛ همراه با اجرای پروژه‌های برق کارخانه‌ها و سوله‌ها،
+          اتوماسیون صنعتی و سیستم‌های کنترل.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-gold" href="#contact">
+            درخواست اجرای پروژه
+          </a>
+
+          <a class="btn btn-outline" href="#services">
+            مشاهده خدمات
+          </a>
+        </div>
       </div>
-      <div class="card">
-        <form id="projectForm">
-          <input id="name" name="name" placeholder="نام و نام خانوادگی" data-ph-fa="نام و نام خانوادگی" data-ph-en="Full name" required>
-          <input id="phone" name="phone" type="tel" placeholder="شماره تماس" data-ph-fa="شماره تماس" data-ph-en="Phone number" required>
-          <select id="service" name="service" required>
-            <option value="" data-fa="نوع خدمات موردنیاز را انتخاب کنید" data-en="Select a service">نوع خدمات موردنیاز را انتخاب کنید</option>
-            <option data-fa="طراحی و مونتاژ تابلو برق" data-en="Panel design and assembly">طراحی و مونتاژ تابلو برق</option>
-            <option data-fa="برق کارخانه و سوله" data-en="Factory electrical work">برق کارخانه و سوله</option>
-            <option data-fa="PLC و اتوماسیون" data-en="PLC and automation">PLC و اتوماسیون</option>
-            <option data-fa="تعمیرات و عیب‌یابی" data-en="Repairs and troubleshooting">تعمیرات و عیب‌یابی</option>
-            <option data-fa="نگهداری دوره‌ای" data-en="Preventive maintenance">نگهداری دوره‌ای</option>
-            <option data-fa="سایر خدمات" data-en="Other">سایر خدمات</option>
+
+      <div class="features">
+
+        <div class="feature">
+          <strong>⚡ طراحی و مونتاژ</strong>
+          <p>تابلوهای برق صنعتی متناسب با نیاز پروژه</p>
+        </div>
+
+        <div class="feature">
+          <strong>🏭 پروژه‌های صنعتی</strong>
+          <p>اجرای خدمات برق کارخانه و سوله</p>
+        </div>
+
+        <div class="feature">
+          <strong>🎛️ PLC و اتوماسیون</strong>
+          <p>خدمات تخصصی سیستم‌های کنترل صنعتی</p>
+        </div>
+
+        <div class="feature">
+          <strong>🛡️ ضمانت خدمات</strong>
+          <p>ضمانت تابلوها طبق شرایط قرارداد</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="content-section services" id="services">
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>خدمات <span>تخصصی ما</span></h2>
+        <p>راهکارهای برق و کنترل برای پروژه‌های صنعتی و ساختمانی</p>
+      </div>
+
+      <div class="cards">
+
+        <article class="card">
+          <div class="card-icon">⚡</div>
+          <h3>طراحی و مونتاژ تابلو برق</h3>
+          <p>
+            طراحی و مونتاژ تابلوهای برق صنعتی، تابلوهای توزیع،
+            فرمان و کنترل بر اساس نیاز پروژه.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🏭</div>
+          <h3>برق کارخانه و سوله</h3>
+          <p>
+            ارائه خدمات برق صنعتی و اجرای پروژه‌های برق
+            کارخانه‌ها، کارگاه‌ها و سوله‌ها.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🎛️</div>
+          <h3>PLC و اتوماسیون صنعتی</h3>
+          <p>
+            برنامه‌نویسی، عیب‌یابی و خدمات سیستم‌های کنترل
+            و اتوماسیون صنعتی متناسب با پروژه.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🔌</div>
+          <h3>تابلو بانک خازنی</h3>
+          <p>
+            طراحی، مونتاژ و عیب‌یابی تابلوهای بانک خازنی
+            برای بهبود ضریب توان تأسیسات.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🛠️</div>
+          <h3>تعمیرات و عیب‌یابی</h3>
+          <p>
+            بررسی ایرادات تابلو برق، تجهیزات فرمان و مدارهای
+            قدرت و ارائه راهکار مناسب برای رفع مشکل.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">📋</div>
+          <h3>نگهداری دوره‌ای</h3>
+          <p>
+            بازدید دوره‌ای تابلوهای برق و خدمات نگهداری
+            طبق برنامه و شرایط توافق‌شده در قرارداد.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section projects" id="projects">
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>نمونه <span>پروژه‌ها</span></h2>
+        <p>بخشی برای معرفی پروژه‌های اجراشده توسط گروه برق صنعت رئیسی</p>
+      </div>
+
+      <div class="project-box">
+        <h3>پروژه‌های صنعتی ما</h3>
+
+        <p>
+          در این قسمت می‌توانیم تصاویر واقعی تابلوهای برق،
+          پروژه‌های مونتاژ و فعالیت‌های صنعتی شرکت را همراه
+          با توضیحات هر پروژه نمایش دهیم.
+        </p>
+
+        <a
+          class="btn btn-outline"
+          href="https://wa.me/989157276137?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%AF%D8%B1%DB%8C%D8%A7%D9%81%D8%AA%20%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%20%D9%BE%D8%B1%D9%88%DA%98%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C%20%D8%B4%D9%85%D8%A7%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%E2%80%8C%D8%AF%D9%87%D9%85."
+          target="_blank"
+          rel="noopener"
+        >
+          ارتباط با ما
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="content-section" id="about">
+    <div class="container about-grid">
+
+      <div class="about-text">
+        <h2>درباره <span>گروه برق صنعت رئیسی</span></h2>
+
+        <p>
+          گروه برق صنعت رئیسی در زمینه خدمات برق صنعتی،
+          طراحی و مونتاژ تابلوهای برق و اجرای پروژه‌های
+          کارخانه‌ای فعالیت می‌کند.
+        </p>
+
+        <p>
+          هدف ما ارائه راهکارهای فنی متناسب با نیاز مشتری،
+          اجرای اصولی پروژه و ایجاد همکاری بلندمدت با
+          مجموعه‌های صنعتی است.
+        </p>
+
+        <a class="btn btn-gold" href="#contact">
+          مشاوره و درخواست پروژه
+        </a>
+      </div>
+
+      <div class="about-panel">
+        <h3>چرا گروه برق صنعت رئیسی؟</h3>
+
+        <ul>
+          <li>تمرکز بر نیازهای برق صنعتی</li>
+          <li>راهکار متناسب با شرایط هر پروژه</li>
+          <li>توجه به کیفیت اجرا و ایمنی</li>
+          <li>امکان هماهنگی برای بازدید و بررسی پروژه</li>
+          <li>ضمانت تابلو برق طبق شرایط قرارداد</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="content-section contact" id="contact">
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>تماس با <span>ما</span></h2>
+        <p>برای مشاوره، استعلام قیمت یا درخواست اجرای پروژه با ما در ارتباط باشید.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <h3>اطلاعات تماس</h3>
+
+          <div class="contact-item">
+            <strong>نام شرکت:</strong>
+            گروه برق صنعت رئیسی
+          </div>
+
+          <div class="contact-item">
+            <strong>تلفن همراه:</strong>
+            <a href="tel:09157276137">09157276137</a>
+          </div>
+
+          <div class="contact-item">
+            <strong>تلفن دفتر:</strong>
+            <a href="tel:05137112121">05137112121</a>
+          </div>
+
+          <div class="contact-item">
+            <strong>آدرس:</strong>
+            مشهد، بلوار سجاد، بزرگمهر جنوبی، ۱۲/۱
+          </div>
+
+          <div class="buttons" style="margin-top:24px">
+            <a
+              class="btn btn-gold"
+              href="https://wa.me/989157276137"
+              target="_blank"
+              rel="noopener"
+            >
+              پیام در واتساپ
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="projectForm">
+          <h3>درخواست اجرای پروژه</h3>
+
+          <input
+            type="text"
+            id="customerName"
+            placeholder="نام و نام خانوادگی / نام شرکت"
+            required
+          >
+
+          <input
+            type="tel"
+            id="customerPhone"
+            placeholder="شماره تماس"
+            required
+          >
+
+          <select id="projectType" required>
+            <option value="">نوع خدمات موردنیاز</option>
+            <option>طراحی و مونتاژ تابلو برق</option>
+            <option>برق کارخانه و سوله</option>
+            <option>PLC و اتوماسیون صنعتی</option>
+            <option>تابلو بانک خازنی</option>
+            <option>تعمیرات و عیب‌یابی تابلو برق</option>
+            <option>نگهداری دوره‌ای</option>
+            <option>سایر خدمات</option>
           </select>
-          <textarea id="details" name="details" placeholder="توضیح مختصر درباره پروژه (اختیاری)" data-ph-fa="توضیح مختصر درباره پروژه (اختیاری)" data-ph-en="Brief project details (optional)"></textarea>
-          <button class="btn btn-gold" type="submit" data-fa="ارسال درخواست در واتساپ" data-en="Send Request via WhatsApp">ارسال درخواست در واتساپ</button>
-          <p class="note" data-fa="این فرم اطلاعات را در سایت ذخیره نمی‌کند؛ پیام شما در واتساپ آماده می‌شود و با تأیید خودتان ارسال خواهد شد." data-en="This form does not store data on the website. It prepares a WhatsApp message for you to review and send.">این فرم اطلاعات را در سایت ذخیره نمی‌کند؛ پیام شما در واتساپ آماده می‌شود و با تأیید خودتان ارسال خواهد شد.</p>
+
+          <textarea
+            id="projectDetails"
+            placeholder="توضیحات پروژه، محل اجرا و نیازهای شما"
+          ></textarea>
+
+          <button class="btn btn-gold" type="submit"
+            style="width:100%;border:0;cursor:pointer">
+            ارسال درخواست در واتساپ
+          </button>
+
+          <p style="font-size:11px;color:#999;margin-top:10px">
+            اطلاعات فرم در سایت ذخیره نمی‌شود؛ با زدن دکمه،
+            واتساپ برای ارسال درخواست باز خواهد شد.
+          </p>
         </form>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
 </main>
 
 <footer>
-  <div class="container footer-row">
-    <span data-fa="© گروه برق صنعت رئیسی | تمامی حقوق محفوظ است." data-en="© BSR Electric | All rights reserved.">© گروه برق صنعت رئیسی | تمامی حقوق محفوظ است.</span>
-    <span>جریانی پایدار، کیفیتی ماندگار</span>
+  <div class="container">
+    <p>
+      <strong>گروه برق صنعت رئیسی | BSR Electric</strong>
+    </p>
+    <p>جریانی پایدار، کیفیتی ماندگار</p>
+    <p>© تمامی حقوق برای گروه برق صنعت رئیسی محفوظ است.</p>
   </div>
 </footer>
 
 <script>
-let currentLang = "fa";
+document.getElementById("projectForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-document.getElementById("langBtn").addEventListener("click", function () {
-  currentLang = currentLang === "fa" ? "en" : "fa";
-  document.documentElement.lang = currentLang;
-  document.documentElement.dir = currentLang === "fa" ? "rtl" : "ltr";
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const type = document.getElementById("projectType").value;
+  const details = document.getElementById("projectDetails").value.trim();
 
-  document.querySelectorAll("[data-fa][data-en]").forEach(function (el) {
-    el.innerHTML = el.getAttribute("data-" + currentLang);
-  });
+  const message =
+    "سلام، درخواست پروژه جدید از سایت گروه برق صنعت رئیسی\n\n" +
+    "نام / شرکت: " + name + "\n" +
+    "شماره تماس: " + phone + "\n" +
+    "نوع خدمات: " + type + "\n" +
+    "توضیحات: " + (details || "توضیحی وارد نشده است");
 
-  document.querySelectorAll("[data-ph-fa][data-ph-en]").forEach(function (el) {
-    el.placeholder = el.getAttribute("data-ph-" + currentLang);
-  });
+  const whatsappURL =
+    "https://wa.me/989157276137?text=" + encodeURIComponent(message);
 
-  this.textContent = currentLang === "fa" ? "English" : "فارسی";
-});
-
-document.getElementById("projectForm").addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const service = document.getElementById("service").selectedOptions[0].text;
-  const details = document.getElementById("details").value.trim();
-
-  const message = currentLang === "fa"
-    ? `سلام، از طریق وب‌سایت BSR Electric درخواست پروژه دارم.\nنام: ${name}\nشماره تماس: ${phone}\nخدمات: ${service}\nتوضیحات: ${details || "ذکر نشده"}`
-    : `Hello, I have a project request via the BSR Electric website.\nName: ${name}\nPhone: ${phone}\nService: ${service}\nDetails: ${details || "Not provided"}`;
-
-  window.open("https://wa.me/989157276137?text=" + encodeURIComponent(message), "_blank", "noopener");
+  window.open(whatsappURL, "_blank");
 });
 </script>
+
 </body>
 </html>
