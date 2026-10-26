@@ -3,72 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b0b0b">
-
+<meta name="theme-color" content="#090909">
 <title>گروه برق صنعت رئیسی | BSR Electric</title>
-
 <meta name="description" content="طراحی و مونتاژ تابلو برق صنعتی، برق کارخانه و سوله، PLC، اتوماسیون صنعتی و تعمیرات تابلو برق در مشهد.">
+
 <style>
-  /* افکت طلایی دکمه‌ها */
-.btn,
-button {
-  transition: all 0.3s ease;
-}
-
-.btn:hover,
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(217, 165, 46, 0.45);
-}
-
-/* افکت برجسته‌شدن کارت‌های خدمات */
-.card {
-  transition: transform 0.35s ease, box-shadow 0.35s ease,
-              border-color 0.35s ease;
-}
-
-.card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 10px 28px rgba(217, 165, 46, 0.22);
-  border-color: var(--gold);
-}
-
-/* افکت ملایم هنگام لمس کارت‌ها با گوشی */
-@media (hover: none) {
-  .card:active,
-  .btn:active,
-  button:active {
-    box-shadow: 0 0 18px rgba(217, 165, 46, 0.3);
-  }
-}
-  /* خطوط مدار طلایی در پس‌زمینه */
-body {
-  background-image:
-    radial-gradient(circle at 15% 20%, rgba(217, 165, 46, 0.07) 0, transparent 25%),
-    radial-gradient(circle at 85% 75%, rgba(217, 165, 46, 0.06) 0, transparent 28%);
-  background-attachment: fixed;
-}
-
-section {
-  position: relative;
-}
-
-section:not(.hero)::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.16;
-  background-image:
-    linear-gradient(90deg, transparent 49%, rgba(217, 165, 46, 0.18) 50%, transparent 51%),
-    linear-gradient(0deg, transparent 49%, rgba(217, 165, 46, 0.12) 50%, transparent 51%);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
-}
-
-section:not(.hero) > * {
-  position: relative;
-}
 :root {
   --gold: #d9a52e;
   --gold-light: #f4cb69;
@@ -76,120 +15,142 @@ section:not(.hero) > * {
   --panel: #141414;
   --text: #f5f5f5;
   --muted: #b8b8b8;
+  --line: rgba(217,165,46,.25);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-  background: var(--black);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(217,165,46,.08), transparent 25rem),
+    radial-gradient(circle at 88% 72%, rgba(217,165,46,.06), transparent 28rem),
+    var(--black);
   color: var(--text);
   font-family: Tahoma, Arial, sans-serif;
   line-height: 1.9;
+  overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+.container { width: min(1180px, 92%); margin: auto; }
+
+header, main, footer { position: relative; z-index: 1; }
+
+/* پس زمینه مدارهای الکتریکی */
+.circuit-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .13;
+  background-image:
+    radial-gradient(circle, rgba(244,203,105,.9) 1.2px, transparent 1.8px),
+    linear-gradient(90deg, transparent 47%, rgba(217,165,46,.3) 47.3%, transparent 47.6%),
+    linear-gradient(0deg, transparent 62%, rgba(217,165,46,.25) 62.3%, transparent 62.6%);
+  background-size: 54px 54px, 108px 108px, 108px 108px;
 }
 
-.container {
-  width: min(1180px, 92%);
-  margin: auto;
-}
-
-/* Header */
-
+/* سربرگ */
 header {
-  position: relative;
-  z-index: 5;
-  background: rgba(8, 8, 8, 0.96);
-  border-bottom: 1px solid rgba(217, 165, 46, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(8,8,8,.93);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
 }
 
 .nav {
-  min-height: 92px;
+  min-height: 82px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
-  padding: 12px 0;
+  padding: 10px 0;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
+.brand { display: flex; align-items: center; gap: 12px; }
 
 .logo {
-  width: 65px;
-  height: 65px;
+  width: 62px;
+  height: 62px;
   object-fit: cover;
-  object-position: center;
   border: 1px solid var(--gold);
   border-radius: 12px;
   background: #000;
-  padding: 0;
+  box-shadow: 0 0 18px rgba(217,165,46,.12);
 }
 
-.brand h2 {
-  font-size: 19px;
-  color: var(--gold-light);
-}
-
-.brand p {
-  font-size: 12px;
-  color: #ddd;
-}
+.brand h2 { font-size: 18px; color: var(--gold-light); }
+.brand p { font-size: 11px; color: #ddd; }
 
 nav {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-nav a {
-  font-size: 14px;
-  transition: color .2s;
-}
-
-nav a:hover {
-  color: var(--gold-light);
-}
+nav a { font-size: 13px; transition: color .25s ease; }
+nav a:hover { color: var(--gold-light); }
 
 .nav-call {
   border: 1px solid var(--gold);
-  padding: 9px 16px;
+  padding: 8px 14px;
   border-radius: 9px;
   color: var(--gold-light);
+  background: rgba(217,165,46,.06);
 }
 
-/* Hero */
+/* دکمه ها */
+.btn {
+  display: inline-block;
+  padding: 12px 23px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .28s ease, box-shadow .28s ease, background .28s ease;
+}
 
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: #17120a;
+  box-shadow: 0 5px 18px rgba(217,165,46,.12);
+}
+
+.btn-outline {
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  background: rgba(0,0,0,.35);
+}
+
+.buttons { display: flex; flex-wrap: wrap; gap: 13px; }
+
+@media (hover:hover) {
+  .btn:hover, button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 22px rgba(217,165,46,.35);
+  }
+}
+
+/* بخش اصلی و تصویر صنعتی */
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: 680px;
+  min-height: 650px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background:
-    radial-gradient(
-      ellipse at 80% 35%,
-      rgba(125, 88, 20, .13),
-      transparent 48%
-    ),
-    #0a0a0a;
+  background: #0a0a0a;
 }
 
 .hero::before {
@@ -197,12 +158,12 @@ nav a:hover {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background-image:
-    url("IMG_20261026_174456.jpg");
+  background-image: url("IMG_20261026_174456.jpg");
   background-position: left center;
   background-size: cover;
-  opacity: .45;
-  filter: grayscale(100%);
+  opacity: .52;
+  filter: grayscale(72%);
+  transform: scale(1.02);
 }
 
 .hero::after {
@@ -213,295 +174,270 @@ nav a:hover {
   background: linear-gradient(
     270deg,
     #090909 0%,
-    rgba(9,9,9,.97) 25%,
-    rgba(9,9,9,.70) 55%,
-    rgba(9,9,9,.25) 100%
+    rgba(9,9,9,.94) 27%,
+    rgba(9,9,9,.64) 58%,
+    rgba(9,9,9,.18) 100%
   );
 }
 
-.hero-content {
-  width: 100%;
-  padding: 80px 0 35px;
-}
-
-.hero-text {
-  max-width: 700px;
-  margin-right: auto;
-  text-align: right;
-}
+.hero-content { width: 100%; padding: 68px 0 34px; }
+.hero-text { max-width: 710px; margin-right: auto; text-align: right; }
 
 .eyebrow {
   color: var(--gold-light);
-  font-size: 14px;
+  font-size: 13px;
+  margin-bottom: 12px;
   letter-spacing: 1px;
-  margin-bottom: 18px;
+}
+
+.experience-badge {
+  display: inline-block;
+  margin: 8px 0 15px;
+  padding: 7px 17px;
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  background: rgba(217,165,46,.12);
+  color: var(--gold-light);
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 0 22px rgba(217,165,46,.13);
 }
 
 .hero h1 {
-  font-size: clamp(32px, 5vw, 57px);
-  line-height: 1.6;
-  margin-bottom: 14px;
+  font-size: clamp(31px, 5vw, 56px);
+  line-height: 1.55;
+  margin-bottom: 10px;
 }
 
 .hero h1 span {
   color: var(--gold);
+  text-shadow: 0 0 24px rgba(217,165,46,.18);
 }
 
 .slogan {
-  color: #e8e8e8;
-  font-size: clamp(19px, 2.5vw, 27px);
-  margin-bottom: 22px;
+  color: #eee;
+  font-size: clamp(18px, 2.4vw, 26px);
+  margin-bottom: 18px;
 }
 
 .hero-description {
-  color: #c8c8c8;
-  font-size: 16px;
-  max-width: 630px;
-  margin-bottom: 30px;
-}
-
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 13px 25px;
-  border-radius: 10px;
+  color: #ccc;
   font-size: 15px;
-  font-weight: bold;
-  transition: .2s;
-  text-align: center;
+  max-width: 630px;
+  margin-bottom: 25px;
 }
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn-gold {
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
-  color: #17120a;
-}
-
-.btn-outline {
-  border: 1px solid var(--gold);
-  color: var(--gold-light);
-  background: rgba(0,0,0,.3);
-}
-
-/* Feature cards */
 
 .features {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 13px;
-  margin-top: 55px;
+  grid-template-columns: repeat(4,1fr);
+  gap: 12px;
+  margin-top: 48px;
 }
 
 .feature {
-  padding: 18px;
-  background: rgba(15,15,15,.75);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
+  padding: 17px;
+  background: rgba(15,15,15,.78);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 13px;
+  backdrop-filter: blur(10px);
+  transition: border-color .3s, background .3s, transform .3s;
+}
+
+.feature:hover {
+  border-color: rgba(217,165,46,.65);
+  background: rgba(30,25,15,.9);
+  transform: translateY(-3px);
 }
 
 .feature strong {
   display: block;
   color: var(--gold-light);
-  margin-bottom: 5px;
-  font-size: 15px;
-}
-
-.feature p {
-  color: #bcbcbc;
-  font-size: 12px;
-}
-
-/* General sections */
-
-section.content-section {
-  padding: 85px 0;
-}
-
-.section-heading {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.section-heading h2 {
-  font-size: clamp(25px, 3vw, 35px);
-  margin-bottom: 10px;
-}
-
-.section-heading h2 span {
-  color: var(--gold);
-}
-
-.section-heading p {
-  color: var(--muted);
+  margin-bottom: 4px;
   font-size: 14px;
 }
 
-.services {
-  background: #101010;
+.feature p { color: #c4c4c4; font-size: 12px; }
+
+/* بخش های داخلی و پس زمینه مداری */
+section.content-section {
+  position: relative;
+  padding: 78px 0;
 }
+
+section.content-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .16;
+  background-image:
+    radial-gradient(circle, rgba(244,203,105,.7) 1px, transparent 1.6px),
+    linear-gradient(90deg, transparent 49%, rgba(217,165,46,.22) 49.5%, transparent 50%);
+  background-size: 44px 44px, 88px 88px;
+}
+
+section.content-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.section-heading { text-align: center; margin-bottom: 36px; }
+.section-heading h2 { font-size: clamp(25px,3vw,35px); margin-bottom: 8px; }
+.section-heading h2 span, .about-text h2 span { color: var(--gold); }
+.section-heading p { color: var(--muted); font-size: 14px; }
+
+.services { background: rgba(16,16,16,.9); }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3,1fr);
+  gap: 19px;
 }
 
+/* کارت های خدمات */
 .card {
-  background: linear-gradient(145deg, #181818, #101010);
-  border: 1px solid rgba(217,165,46,.18);
-  padding: 28px 23px;
-  border-radius: 14px;
-  transition: .25s;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(28,28,28,.97), rgba(14,14,14,.97));
+  border: 1px solid rgba(217,165,46,.22);
+  padding: 26px 22px;
+  border-radius: 15px;
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
 
-.card:hover {
-  border-color: var(--gold);
-  transform: translateY(-4px);
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 12%;
+  left: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  opacity: .45;
+  transition: opacity .3s, right .3s, left .3s;
 }
 
 .card-icon {
-  font-size: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(217,165,46,.38);
+  border-radius: 14px;
+  background: rgba(217,165,46,.08);
+  font-size: 28px;
   margin-bottom: 12px;
+  transition: transform .3s, box-shadow .3s;
 }
 
-.card h3 {
-  color: var(--gold-light);
-  font-size: 18px;
-  margin-bottom: 12px;
+.card h3 { color: var(--gold-light); font-size: 17px; margin-bottom: 10px; }
+.card p { color: #bcbcbc; font-size: 13px; }
+
+@media (hover:hover) {
+  .card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 32px rgba(217,165,46,.18);
+    border-color: var(--gold);
+  }
+
+  .card:hover::before {
+    opacity: 1;
+    right: 0;
+    left: 0;
+  }
+
+  .card:hover .card-icon {
+    transform: translateY(-2px) rotate(-3deg);
+    box-shadow: 0 0 20px rgba(217,165,46,.16);
+  }
 }
 
-.card p {
-  color: #bcbcbc;
-  font-size: 14px;
-}
-
-/* Projects */
-
-.projects {
-  background:
-    radial-gradient(ellipse at top, #19150d, transparent 65%),
-    #090909;
-}
+/* نمونه پروژه ها */
+.projects { background: rgba(9,9,9,.83); }
 
 .project-box {
-  border: 1px dashed rgba(217,165,46,.45);
-  border-radius: 16px;
-  padding: 35px 24px;
+  border: 1px solid rgba(217,165,46,.38);
+  border-radius: 17px;
+  padding: 34px 24px;
   text-align: center;
-  background: rgba(255,255,255,.025);
+  background: linear-gradient(135deg, rgba(255,255,255,.035), rgba(217,165,46,.035));
+  box-shadow: inset 0 0 35px rgba(217,165,46,.025);
 }
 
-.project-box h3 {
-  color: var(--gold-light);
-  margin-bottom: 12px;
-  font-size: 21px;
-}
+.project-box h3 { color: var(--gold-light); margin-bottom: 10px; font-size: 21px; }
 
 .project-box p {
   color: #c5c5c5;
   max-width: 650px;
-  margin: 0 auto 22px;
+  margin: 0 auto 21px;
 }
 
-/* About */
-
+/* درباره ما */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 35px;
+  gap: 32px;
   align-items: center;
 }
 
-.about-text h2 {
-  font-size: 30px;
-  margin-bottom: 18px;
-}
-
-.about-text h2 span {
-  color: var(--gold);
-}
+.about-text h2 { font-size: 29px; margin-bottom: 16px; }
 
 .about-text p {
   color: #c1c1c1;
-  margin-bottom: 15px;
-  font-size: 15px;
+  margin-bottom: 14px;
+  font-size: 14px;
 }
 
 .about-panel {
-  border: 1px solid rgba(217,165,46,.3);
-  background: linear-gradient(145deg, #1a1710, #111);
+  border: 1px solid rgba(217,165,46,.32);
+  background: linear-gradient(145deg, rgba(26,23,16,.96), rgba(17,17,17,.96));
   border-radius: 16px;
-  padding: 30px;
+  padding: 27px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.15);
 }
 
-.about-panel h3 {
-  color: var(--gold-light);
-  margin-bottom: 14px;
-}
+.about-panel h3 { color: var(--gold-light); margin-bottom: 12px; }
+.about-panel li { list-style: none; color: #ddd; padding: 6px 0; }
+.about-panel li::before { content: "✓"; color: var(--gold); margin-left: 10px; }
 
-.about-panel li {
-  list-style: none;
-  color: #ddd;
-  padding: 7px 0;
-}
-
-.about-panel li::before {
-  content: "✓";
-  color: var(--gold);
-  margin-left: 10px;
-}
-
-/* Contact */
-
-.contact {
-  background: #101010;
-}
+/* تماس با ما */
+.contact { background: rgba(16,16,16,.92); }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  gap: 22px;
 }
 
-.contact-info,
-.contact-form {
-  background: #171717;
-  border: 1px solid #292929;
+.contact-info, .contact-form {
+  background: rgba(23,23,23,.95);
+  border: 1px solid rgba(217,165,46,.18);
   border-radius: 15px;
-  padding: 28px;
+  padding: 26px;
+  transition: border-color .3s, box-shadow .3s;
 }
 
-.contact-info h3,
-.contact-form h3 {
+.contact-info h3, .contact-form h3 {
   color: var(--gold-light);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .contact-item {
-  margin: 13px 0;
+  margin: 12px 0;
   color: #ddd;
   overflow-wrap: anywhere;
 }
 
-.contact-item strong {
-  color: var(--gold-light);
-}
+.contact-item strong { color: var(--gold-light); }
+.contact-item a:hover { color: var(--gold-light); }
 
 .contact-form input,
 .contact-form textarea,
 .contact-form select {
   width: 100%;
-  padding: 13px;
-  margin-bottom: 13px;
+  padding: 12px;
+  margin-bottom: 12px;
   border: 1px solid #383838;
   background: #0c0c0c;
   color: #fff;
@@ -510,336 +446,202 @@ section.content-section {
   font-size: 14px;
 }
 
-.contact-form textarea {
-  min-height: 115px;
-  resize: vertical;
-}
+.contact-form select option { background: #111; color: #fff; }
+.contact-form textarea { min-height: 112px; resize: vertical; }
 
 .contact-form input:focus,
 .contact-form textarea:focus,
 .contact-form select:focus {
   outline: 1px solid var(--gold);
+  border-color: var(--gold);
+  box-shadow: 0 0 12px rgba(217,165,46,.08);
 }
 
-/* Footer */
-
+/* پابرگ */
 footer {
-  padding: 28px 0;
+  padding: 26px 0;
   text-align: center;
   background: #070707;
-  border-top: 1px solid rgba(217,165,46,.22);
+  border-top: 1px solid var(--line);
 }
 
-footer p {
-  color: #999;
-  font-size: 12px;
+footer p { color: #999; font-size: 12px; }
+footer strong { color: var(--gold-light); }
+
+/* انیمیشن ورود بخش ها هنگام اسکرول */
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
 }
 
-footer strong {
-  color: var(--gold-light);
+.reveal-ready .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Mobile */
-.experience-badge {
-  display: inline-block;
-  margin: 12px 0 20px;
-  padding: 8px 18px;
-  border: 1px solid var(--gold);
-  border-radius: 30px;
-  background: rgba(217, 165, 46, 0.12);
-  color: var(--gold-light);
-  font-size: 16px;
-  font-weight: bold;
-  box-shadow: 0 0 18px rgba(217, 165, 46, 0.12);
-}
-/* افکت طلایی دکمه‌ها */
-.btn,
-button {
-  transition: all 0.3s ease;
-}
+.reveal-ready .reveal-delay-1 { transition-delay: .08s; }
+.reveal-ready .reveal-delay-2 { transition-delay: .16s; }
+.reveal-ready .reveal-delay-3 { transition-delay: .24s; }
 
-.btn:hover,
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(217, 165, 46, 0.45);
-}
-
-/* افکت طلایی کارت‌های خدمات */
-.card {
-  transition: transform 0.35s ease, box-shadow 0.35s ease,
-              border-color 0.35s ease;
-}
-
-.card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 10px 28px rgba(217, 165, 46, 0.22);
-  border-color: var(--gold);
-}
-
-/* نور ملایم هنگام لمس کارت‌ها در گوشی */
-@media (hover: none) {
-  .card:active,
-  .btn:active,
-  button:active {
-    box-shadow: 0 0 18px rgba(217, 165, 46, 0.3);
-  }
-}
+/* واکنش‌گرایی موبایل */
 @media (max-width: 850px) {
-  .nav {
-    justify-content: center;
-  }
-
-  nav {
-    justify-content: center;
-    gap: 16px;
-  }
-
-  .hero {
-    min-height: auto;
-  }
-
-  .hero-content {
-    padding-top: 65px;
-  }
-
-  .hero-text {
-    margin: 0;
-  }
-
-  .features {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
+  .nav { justify-content: center; }
+  nav { justify-content: center; gap: 13px; }
+  .hero { min-height: auto; }
+  .hero-content { padding-top: 54px; }
+  .hero-text { margin: 0; }
+  .features { grid-template-columns: repeat(2,1fr); }
+  .cards { grid-template-columns: repeat(2,1fr); }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 520px) {
-  .brand h2 {
-    font-size: 15px;
+  .brand h2 { font-size: 14px; }
+  .brand p { font-size: 10px; }
+  .logo { width: 52px; height: 52px; }
+  nav { gap: 10px 13px; }
+  nav a { font-size: 12px; }
+  .hero-content { padding-top: 40px; }
+  .hero-description { font-size: 14px; }
+  .buttons { flex-direction: column; }
+  .btn { width: 100%; }
+  .features, .cards { grid-template-columns: 1fr; }
+  section.content-section { padding: 56px 0; }
+  .contact-info, .contact-form { padding: 19px; }
+  .hero::after {
+    background: linear-gradient(270deg, rgba(9,9,9,.97), rgba(9,9,9,.78));
   }
+}
 
-  .brand p {
-    font-size: 10px;
+@media (hover:none) {
+  .card:active, .btn:active, button:active {
+    box-shadow: 0 0 18px rgba(217,165,46,.28);
   }
+}
 
-  .logo {
-    width: 55px;
-    height: 55px;
-  }
-
-  nav {
-    gap: 12px;
-  }
-
-  nav a {
-    font-size: 12px;
-  }
-
-  .hero-content {
-    padding-top: 50px;
-  }
-
-  .hero-description {
-    font-size: 14px;
-  }
-
-  .buttons {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .features,
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  section.content-section {
-    padding: 60px 0;
-  }
-
-  .contact-info,
-  .contact-form {
-    padding: 20px;
-  }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+  .reveal-ready .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
 
 <body>
+<div class="circuit-overlay" aria-hidden="true"></div>
 
 <header>
   <div class="container nav">
-
-    <a class="brand" href="#home">
-      <img
-        src="bsr-logo.jpg"
-        alt="لوگوی BSR"
-        class="logo"
-      >
-
+    <a class="brand" href="#home" aria-label="صفحه اصلی گروه برق صنعت رئیسی">
+      <img src="bsr-logo.jpg" alt="لوگوی BSR" class="logo">
       <div>
         <h2>گروه برق صنعت رئیسی</h2>
         <p>جریانی پایدار، کیفیتی ماندگار</p>
       </div>
     </a>
 
-    <nav>
+    <nav aria-label="ناوبری اصلی">
       <a href="#home">صفحه اصلی</a>
       <a href="#services">خدمات</a>
       <a href="#projects">نمونه‌کارها</a>
       <a href="#about">درباره ما</a>
       <a href="#contact">تماس با ما</a>
-      <a class="nav-call" href="tel:05137112121">
-        تماس با شرکت
-      </a>
+      <a class="nav-call" href="tel:05137112121">تماس با شرکت</a>
     </nav>
-
   </div>
 </header>
 
 <main>
-
   <section class="hero" id="home">
     <div class="container hero-content">
-
       <div class="hero-text">
-        <p class="eyebrow">
-          BSR ELECTRIC | INDUSTRIAL SOLUTIONS
-        </p>
-<div class="experience-badge">۶ سال سابقه فعالیت</div>
-        <h1>
-          گروه برق <span>صنعت رئیسی</span>
-        </h1>
-
-        <p class="slogan">
-          جریانی پایدار، کیفیتی ماندگار
-        </p>
+        <p class="eyebrow">BSR ELECTRIC | INDUSTRIAL SOLUTIONS</p>
+        <div class="experience-badge">۶ سال سابقه فعالیت</div>
+        <h1>گروه برق <span>صنعت رئیسی</span></h1>
+        <p class="slogan">جریانی پایدار، کیفیتی ماندگار</p>
 
         <p class="hero-description">
-          ارائه خدمات تخصصی طراحی، مونتاژ، نصب و تعمیرات تابلو برق
-          صنعتی؛ همراه با اجرای پروژه‌های برق کارخانه‌ها و سوله‌ها،
-          اتوماسیون صنعتی و سیستم‌های کنترل.
+          ارائه خدمات تخصصی طراحی، مونتاژ، نصب و تعمیرات تابلو برق صنعتی؛
+          همراه با اجرای پروژه‌های برق کارخانه‌ها و سوله‌ها، اتوماسیون صنعتی و سیستم‌های کنترل.
         </p>
 
         <div class="buttons">
-          <a class="btn btn-gold" href="#contact">
-            درخواست اجرای پروژه
-          </a>
-
-          <a class="btn btn-outline" href="#services">
-            مشاهده خدمات
-          </a>
+          <a class="btn btn-gold" href="#contact">درخواست اجرای پروژه</a>
+          <a class="btn btn-outline" href="#services">مشاهده خدمات</a>
         </div>
       </div>
 
       <div class="features">
-
         <div class="feature">
           <strong>⚡ طراحی و مونتاژ</strong>
           <p>تابلوهای برق صنعتی متناسب با نیاز پروژه</p>
         </div>
-
         <div class="feature">
           <strong>🏭 پروژه‌های صنعتی</strong>
           <p>اجرای خدمات برق کارخانه و سوله</p>
         </div>
-
         <div class="feature">
           <strong>🎛️ PLC و اتوماسیون</strong>
-          <p>خدمات تخصصی سیستم‌های کنترل صنعتی</p>
+          <p>خدمات سیستم‌های کنترل صنعتی</p>
         </div>
-
         <div class="feature">
           <strong>🛡️ ضمانت خدمات</strong>
           <p>ضمانت تابلوها طبق شرایط قرارداد</p>
         </div>
-
       </div>
-
     </div>
   </section>
 
   <section class="content-section services" id="services">
     <div class="container">
-
       <div class="section-heading">
         <h2>خدمات <span>تخصصی ما</span></h2>
         <p>راهکارهای برق و کنترل برای پروژه‌های صنعتی و ساختمانی</p>
       </div>
 
       <div class="cards">
-
         <article class="card">
           <div class="card-icon">⚡</div>
           <h3>طراحی و مونتاژ تابلو برق</h3>
-          <p>
-            طراحی و مونتاژ تابلوهای برق صنعتی، تابلوهای توزیع،
-            فرمان و کنترل بر اساس نیاز پروژه.
-          </p>
+          <p>طراحی و مونتاژ تابلوهای برق صنعتی، تابلوهای توزیع، فرمان و کنترل بر اساس نیاز پروژه.</p>
         </article>
 
         <article class="card">
           <div class="card-icon">🏭</div>
           <h3>برق کارخانه و سوله</h3>
-          <p>
-            ارائه خدمات برق صنعتی و اجرای پروژه‌های برق
-            کارخانه‌ها، کارگاه‌ها و سوله‌ها.
-          </p>
+          <p>ارائه خدمات برق صنعتی و اجرای پروژه‌های برق کارخانه‌ها، کارگاه‌ها و سوله‌ها.</p>
         </article>
 
         <article class="card">
           <div class="card-icon">🎛️</div>
           <h3>PLC و اتوماسیون صنعتی</h3>
-          <p>
-            برنامه‌نویسی، عیب‌یابی و خدمات سیستم‌های کنترل
-            و اتوماسیون صنعتی متناسب با پروژه.
-          </p>
+          <p>برنامه‌نویسی، عیب‌یابی و خدمات سیستم‌های کنترل و اتوماسیون صنعتی متناسب با پروژه.</p>
         </article>
 
         <article class="card">
           <div class="card-icon">🔌</div>
           <h3>تابلو بانک خازنی</h3>
-          <p>
-            طراحی، مونتاژ و عیب‌یابی تابلوهای بانک خازنی
-            برای بهبود ضریب توان تأسیسات.
-          </p>
+          <p>طراحی، مونتاژ و عیب‌یابی تابلوهای بانک خازنی برای بهبود ضریب توان تأسیسات.</p>
         </article>
 
         <article class="card">
           <div class="card-icon">🛠️</div>
           <h3>تعمیرات و عیب‌یابی</h3>
-          <p>
-            بررسی ایرادات تابلو برق، تجهیزات فرمان و مدارهای
-            قدرت و ارائه راهکار مناسب برای رفع مشکل.
-          </p>
+          <p>بررسی ایرادات تابلو برق، تجهیزات فرمان و مدارهای قدرت و ارائه راهکار مناسب برای رفع مشکل.</p>
         </article>
 
         <article class="card">
           <div class="card-icon">📋</div>
           <h3>نگهداری دوره‌ای</h3>
-          <p>
-            بازدید دوره‌ای تابلوهای برق و خدمات نگهداری
-            طبق برنامه و شرایط توافق‌شده در قرارداد.
-          </p>
+          <p>بازدید دوره‌ای تابلوهای برق و خدمات نگهداری طبق برنامه و شرایط توافق‌شده در قرارداد.</p>
         </article>
-
       </div>
     </div>
   </section>
 
   <section class="content-section projects" id="projects">
     <div class="container">
-
       <div class="section-heading">
         <h2>نمونه <span>پروژه‌ها</span></h2>
         <p>بخشی برای معرفی پروژه‌های اجراشده توسط گروه برق صنعت رئیسی</p>
@@ -847,52 +649,34 @@ button:hover {
 
       <div class="project-box">
         <h3>پروژه‌های صنعتی ما</h3>
-
         <p>
-          در این قسمت می‌توانیم تصاویر واقعی تابلوهای برق،
-          پروژه‌های مونتاژ و فعالیت‌های صنعتی شرکت را همراه
-          با توضیحات هر پروژه نمایش دهیم.
+          در این قسمت می‌توانیم تصاویر واقعی تابلوهای برق، پروژه‌های مونتاژ
+          و فعالیت‌های صنعتی شرکت را همراه با توضیحات هر پروژه نمایش دهیم.
         </p>
-
-        <a
-          class="btn btn-outline"
-          href="https://wa.me/989157276137?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%AF%D8%B1%DB%8C%D8%A7%D9%81%D8%AA%20%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%20%D9%BE%D8%B1%D9%88%DA%98%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C%20%D8%B4%D9%85%D8%A7%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%E2%80%8C%D8%AF%D9%87%D9%85."
-          target="_blank"
-          rel="noopener"
-        >
-          ارتباط با ما
-        </a>
+        <a class="btn btn-outline"
+           href="https://wa.me/989157276137?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%AF%D8%B1%DB%8C%D8%A7%D9%81%D8%AA%20%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%20%D9%BE%D8%B1%D9%88%DA%98%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C%20%D8%B4%D9%85%D8%A7%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%E2%80%8C%D8%AF%D9%87%D9%85."
+           target="_blank" rel="noopener">ارتباط با ما</a>
       </div>
-
     </div>
   </section>
 
   <section class="content-section" id="about">
     <div class="container about-grid">
-
       <div class="about-text">
         <h2>درباره <span>گروه برق صنعت رئیسی</span></h2>
-
         <p>
-          گروه برق صنعت رئیسی در زمینه خدمات برق صنعتی،
-          طراحی و مونتاژ تابلوهای برق و اجرای پروژه‌های
-          کارخانه‌ای فعالیت می‌کند.
+          گروه برق صنعت رئیسی در زمینه خدمات برق صنعتی، طراحی و مونتاژ
+          تابلوهای برق و اجرای پروژه‌های کارخانه‌ای فعالیت می‌کند.
         </p>
-
         <p>
-          هدف ما ارائه راهکارهای فنی متناسب با نیاز مشتری،
-          اجرای اصولی پروژه و ایجاد همکاری بلندمدت با
-          مجموعه‌های صنعتی است.
+          هدف ما ارائه راهکارهای فنی متناسب با نیاز مشتری، اجرای اصولی پروژه
+          و ایجاد همکاری بلندمدت با مجموعه‌های صنعتی است.
         </p>
-
-        <a class="btn btn-gold" href="#contact">
-          مشاوره و درخواست پروژه
-        </a>
+        <a class="btn btn-gold" href="#contact">مشاوره و درخواست پروژه</a>
       </div>
 
       <div class="about-panel">
         <h3>چرا گروه برق صنعت رئیسی؟</h3>
-
         <ul>
           <li>تمرکز بر نیازهای برق صنعتی</li>
           <li>راهکار متناسب با شرایط هر پروژه</li>
@@ -901,26 +685,22 @@ button:hover {
           <li>ضمانت تابلو برق طبق شرایط قرارداد</li>
         </ul>
       </div>
-
     </div>
   </section>
 
   <section class="content-section contact" id="contact">
     <div class="container">
-
       <div class="section-heading">
         <h2>تماس با <span>ما</span></h2>
         <p>برای مشاوره، استعلام قیمت یا درخواست اجرای پروژه با ما در ارتباط باشید.</p>
       </div>
 
       <div class="contact-grid">
-
         <div class="contact-info">
           <h3>اطلاعات تماس</h3>
 
           <div class="contact-item">
-            <strong>نام شرکت:</strong>
-            گروه برق صنعت رئیسی
+            <strong>نام شرکت:</strong> گروه برق صنعت رئیسی
           </div>
 
           <div class="contact-item">
@@ -939,33 +719,19 @@ button:hover {
           </div>
 
           <div class="buttons" style="margin-top:24px">
-            <a
-              class="btn btn-gold"
-              href="https://wa.me/989157276137"
-              target="_blank"
-              rel="noopener"
-            >
-              پیام در واتساپ
-            </a>
+            <a class="btn btn-gold" href="https://wa.me/989157276137"
+               target="_blank" rel="noopener">پیام در واتساپ</a>
           </div>
         </div>
 
         <form class="contact-form" id="projectForm">
           <h3>درخواست اجرای پروژه</h3>
 
-          <input
-            type="text"
-            id="customerName"
-            placeholder="نام و نام خانوادگی / نام شرکت"
-            required
-          >
+          <input type="text" id="customerName"
+                 placeholder="نام و نام خانوادگی / نام شرکت" required>
 
-          <input
-            type="tel"
-            id="customerPhone"
-            placeholder="شماره تماس"
-            required
-          >
+          <input type="tel" id="customerPhone"
+                 placeholder="شماره تماس" required>
 
           <select id="projectType" required>
             <option value="">نوع خدمات موردنیاز</option>
@@ -978,61 +744,64 @@ button:hover {
             <option>سایر خدمات</option>
           </select>
 
-          <textarea
-            id="projectDetails"
-            placeholder="توضیحات پروژه، محل اجرا و نیازهای شما"
-          ></textarea>
+          <textarea id="projectDetails"
+                    placeholder="توضیحات پروژه، محل اجرا و نیازهای شما"></textarea>
 
           <button class="btn btn-gold" type="submit"
-            style="width:100%;border:0;cursor:pointer">
+                  style="width:100%;border:0">
             ارسال درخواست در واتساپ
           </button>
 
           <p style="font-size:11px;color:#999;margin-top:10px">
-            اطلاعات فرم در سایت ذخیره نمی‌شود؛ با زدن دکمه،
-            واتساپ برای ارسال درخواست باز خواهد شد.
+            اطلاعات فرم در سایت ذخیره نمی‌شود؛ با زدن دکمه، واتساپ برای ارسال درخواست باز خواهد شد.
           </p>
         </form>
-
       </div>
     </div>
   </section>
-
 </main>
 
 <footer>
   <div class="container">
-    <p>
-      <strong>گروه برق صنعت رئیسی | BSR Electric</strong>
-    </p>
+    <p><strong>گروه برق صنعت رئیسی | BSR Electric</strong></p>
     <p>جریانی پایدار، کیفیتی ماندگار</p>
     <p>© تمامی حقوق برای گروه برق صنعت رئیسی محفوظ است.</p>
   </div>
 </footer>
 
 <script>
-  // انیمیشن ظاهر شدن کارت‌ها و بخش‌ها هنگام اسکرول
-const revealElements = document.querySelectorAll(
-  ".section-heading, .card, .project-box, .about-text, .about-panel, .contact-info, .contact-form, .feature"
-);
+/* انیمیشن ظاهر شدن کارت ها هنگام اسکرول */
+(function () {
+  if (!("IntersectionObserver" in window)) return;
 
-if ("IntersectionObserver" in window) {
-  revealElements.forEach((el) => el.classList.add("reveal"));
+  const targets = document.querySelectorAll(
+    ".section-heading, .card, .project-box, .about-text, .about-panel, .contact-info, .contact-form, .feature"
+  );
 
-  const revealObserver = new IntersectionObserver((entries) => {
+  targets.forEach((el, index) => {
+    el.classList.add("reveal");
+
+    if (index % 4 === 1) el.classList.add("reveal-delay-1");
+    if (index % 4 === 2) el.classList.add("reveal-delay-2");
+    if (index % 4 === 3) el.classList.add("reveal-delay-3");
+  });
+
+  document.documentElement.classList.add("reveal-ready");
+
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
+        observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.12
-  });
+  }, { threshold: 0.12 });
 
-  revealElements.forEach((el) => revealObserver.observe(el));
-}
-document.getElementById("projectForm").addEventListener("submit", function(e) {
+  targets.forEach((el) => observer.observe(el));
+})();
+
+/* ارسال درخواست پروژه به واتساپ */
+document.getElementById("projectForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const name = document.getElementById("customerName").value.trim();
@@ -1050,7 +819,11 @@ document.getElementById("projectForm").addEventListener("submit", function(e) {
   const whatsappURL =
     "https://wa.me/989157276137?text=" + encodeURIComponent(message);
 
-  window.open(whatsappURL, "_blank");
+  const newWindow = window.open(whatsappURL, "_blank");
+
+  if (!newWindow) {
+    window.location.href = whatsappURL;
+  }
 });
 </script>
 
