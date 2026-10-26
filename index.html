@@ -40,9 +40,14 @@ header {
 }
 .brand { display: flex; align-items: center; gap: 12px; }
 .logo {
-  width: 48px; height: 48px; border: 2px solid var(--gold);
-  color: var(--gold); display: grid; place-items: center;
-  font-weight: bold; font-size: 18px; border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  background: #000;
+  padding: 2px;
+}
 }
 .brand-name { font-weight: bold; }
 .brand-en { font-size: 11px; color: var(--gold); direction: ltr; }
@@ -136,7 +141,7 @@ footer { padding: 25px 0; border-top: 1px solid #292929; color: var(--muted); fo
 <header>
   <div class="container nav">
     <a class="brand" href="#home" aria-label="BSR Electric">
-      <div class="logo">BSR</div>
+      <img src="bsr-logo.jpg" alt="لوگوی گروه برق صنعت رئیسی" class="logo">
       <div>
         <div class="brand-name" data-fa="گروه برق صنعت رئیسی" data-en="Raisi Industrial Electric">گروه برق صنعت رئیسی</div>
         <div class="brand-en">BSR ELECTRIC</div>
