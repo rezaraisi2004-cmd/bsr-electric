@@ -493,6 +493,29 @@ footer strong {
   font-weight: bold;
   box-shadow: 0 0 18px rgba(217, 165, 46, 0.12);
 }
+  /* افکت طلایی و حرکت نرم دکمه‌ها */
+button,
+.btn,
+a.button {
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.btn:hover,
+a.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(217, 165, 46, 0.4);
+}
+
+/* افکت نور و حرکت کارت‌های خدمات */
+.service-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(217, 165, 46, 0.18);
+}
 @media (max-width: 850px) {
   .nav {
     justify-content: center;
