@@ -8,7 +8,25 @@
 <title>گروه برق صنعت رئیسی | BSR Electric</title>
 
 <meta name="description" content="طراحی و مونتاژ تابلو برق صنعتی، برق کارخانه و سوله، PLC، اتوماسیون صنعتی و تعمیرات تابلو برق در مشهد.">
+/* انیمیشن ظاهر شدن بخش‌ها هنگام اسکرول */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
 
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 <style>
 :root {
   --gold: #d9a52e;
@@ -952,6 +970,27 @@ button:hover {
 </footer>
 
 <script>
+  // انیمیشن ظاهر شدن کارت‌ها و بخش‌ها هنگام اسکرول
+const revealElements = document.querySelectorAll(
+  ".section-heading, .card, .project-box, .about-text, .about-panel, .contact-info, .contact-form, .feature"
+);
+
+if ("IntersectionObserver" in window) {
+  revealElements.forEach((el) => el.classList.add("reveal"));
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12
+  });
+
+  revealElements.forEach((el) => revealObserver.observe(el));
+}
 document.getElementById("projectForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
