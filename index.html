@@ -9,6 +9,66 @@
 
 <meta name="description" content="طراحی و مونتاژ تابلو برق صنعتی، برق کارخانه و سوله، PLC، اتوماسیون صنعتی و تعمیرات تابلو برق در مشهد.">
 <style>
+  /* افکت طلایی دکمه‌ها */
+.btn,
+button {
+  transition: all 0.3s ease;
+}
+
+.btn:hover,
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(217, 165, 46, 0.45);
+}
+
+/* افکت برجسته‌شدن کارت‌های خدمات */
+.card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease,
+              border-color 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 28px rgba(217, 165, 46, 0.22);
+  border-color: var(--gold);
+}
+
+/* افکت ملایم هنگام لمس کارت‌ها با گوشی */
+@media (hover: none) {
+  .card:active,
+  .btn:active,
+  button:active {
+    box-shadow: 0 0 18px rgba(217, 165, 46, 0.3);
+  }
+}
+  /* خطوط مدار طلایی در پس‌زمینه */
+body {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(217, 165, 46, 0.07) 0, transparent 25%),
+    radial-gradient(circle at 85% 75%, rgba(217, 165, 46, 0.06) 0, transparent 28%);
+  background-attachment: fixed;
+}
+
+section {
+  position: relative;
+}
+
+section:not(.hero)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(90deg, transparent 49%, rgba(217, 165, 46, 0.18) 50%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(217, 165, 46, 0.12) 50%, transparent 51%);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+section:not(.hero) > * {
+  position: relative;
+}
 :root {
   --gold: #d9a52e;
   --gold-light: #f4cb69;
